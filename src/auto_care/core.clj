@@ -1,18 +1,45 @@
 (ns auto-care.core)
 
-(def car-mileage 2000)
+;; MAINTENANCE DATA:
 
-(def oil-change-interval 10000)
+;; Stores maintenance tasks and their recommended service intervals
+(def maintenance-tasks
+  [{:name "Oil change"
+    :kilometers-since-service 2000
+    :interval 10000}
 
-(defn oil-change-needed? [mileage]
-  (>= mileage oil-change-interval))
+   {:name "Tire inspection"
+    :kilometers-since-service 6000
+    :interval 5000}
 
-(defn kilometers-until-oil-change [mileage]
-  (- oil-change-interval mileage))
+   {:name "Brake inspection"
+    :kilometers-since-service 3000
+    :interval 10000}])
 
-(println "Auto-Care maintenance check:")
 
-(if (oil-change-needed? car-mileage)
-  (println "Check whether the engine oil needs changing.")
-  (println "Kilometers until the next oil change:"
-           (kilometers-until-oil-change car-mileage)))
+;; MAINTENANCE FUNCTIONS:
+
+;; Checks whether a maintenance task is due
+(defn maintenance-due? [task]
+  (>= (:kilometers-since-service task)
+      (:interval task)))
+
+;; Calculates the remaining kilometers until maintenance is due
+(defn kilometers-until-maintenance [task]
+  (- (:interval task)
+     (:kilometers-since-service task)))
+
+;; Returns a message describing the maintenance status of a task
+(defn maintenance-message [task]
+  (if (maintenance-due? task)
+    "This maintenance task is due."
+    (str "Kilometers until maintenance: "
+         (kilometers-until-maintenance task))))
+
+;; Returns only maintenance tasks that are due
+(defn tasks-due-for-maintenance [tasks]
+  (filter maintenance-due? tasks))
+
+;; Sorts maintenance tasks by urgency, from most urgent to least urgent
+(defn sort-maintenance-tasks [tasks]
+  (sort-by kilometers-until-maintenance tasks))
