@@ -1,22 +1,9 @@
-# auto-care
+# Auto Care
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure-based student project focused on vehicle maintenance guidance.
 
-## Usage
+## About the Project
 
-FIXME
+Auto-Care aims to help car owners better understand their vehicles and learn about basic maintenance.
 
-## License
-
-Copyright © 2026 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-https://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+Information about vehicle maintenance can be difficult to find and understand, especially for people with limited technical knowledge. The project aims to make this information easier to access through clear, beginner-friendly guidance.
